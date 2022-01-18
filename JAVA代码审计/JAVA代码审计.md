@@ -6,7 +6,7 @@
 
 1. https://github.com/Maskhe/javasec
 
-  ​	day 1/11：已经读到IDEA调试2,但是似乎无法读完即应用，转去其他资料观望一下。
+    ​	day 1/11：已经读到IDEA调试2,但是似乎无法读完即应用，转去其他资料观望一下。
 
 1. https://github.com/HackJava/HackJava
 
