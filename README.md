@@ -21,6 +21,6 @@
 
 本项目内容目前（及未来）会包括：
 
-1. [JAVA代码审计](https://github.com/Tsunamori/2022-learning-schedule/tree/main/JAVA%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1)
+1. [JAVA安全](https://github.com/Tsunamori/security-learning-schedule/tree/main/JAVA%E5%AE%89%E5%85%A8)
 1. [云原生/容器安全]
 1. [数据安全]
