@@ -13,15 +13,22 @@
 3. [guide-to-the-2022-oscp-exam-on-m1-with-active-directory](https://medium.com/@GromHacks/guide-to-the-2022-oscp-exam-on-m1-with-active-directory-d8b4ce30f4f3)
 4. [new-oscp-exam-vs-previous-oscp-exam](https://cel1s0.gitbook.io/offsec-notes/blog/new-oscp-exam-vs-previous-oscp-exam)
 5. [passing-the-new-oscp](https://n0h4ts.medium.com/passing-the-new-oscp-b9fcd434ade7)
-6. 
+
 
 ### 一些官方指导
 1. [官方设备参考配置要求](https://help.offensive-security.com/hc/en-us/articles/360040160792-What-are-the-technical-requirements-to-participate-in-a-proctored-exam-)
 2. [官方OSCP的FAQ](https://help.offensive-security.com/hc/en-us/articles/4412170923924-OSCP-Exam-FAQ)
+3. [官方的PPT-2022](https://fs.hubspotusercontent00.net/hubfs/5852453/OSCP%202.pdf)
 
 ### 一些可以寻求帮助的论坛
 1. [reddit](https://www.reddit.com/r/oscp/)
 
+### 一些工具
+1. [记笔记-cherrytree](https://www.kali.org/tools/cherrytree/)
+
+### 一些别人的cheatsheet
+1. [My_OSCP_Preparation_Notes](https://oscpnotes.infosecsanyam.in/My_OSCP_Preparation_Notes.html)
+2. [hacktricks](https://book.hacktricks.xyz)
 
 ## 靶场笔记
 
