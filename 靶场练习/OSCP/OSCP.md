@@ -27,4 +27,4 @@
 
 ### HTB
 这里以网上流传很广的HTB-OSCP like box 为主要练习路线。
-![image](/home/tsunamori/L/security-learning-schedule/靶场练习/OSCP/图床/OSCP-htb.jpg)
+![OSCP-HTB](%E5%9B%BE%E5%BA%8A/OSCP-htb.jpg)
