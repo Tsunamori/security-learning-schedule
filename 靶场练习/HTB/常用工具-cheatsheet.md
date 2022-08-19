@@ -28,11 +28,34 @@ nmap 参数详解 https://www.freebuf.com/sectool/264941.html
   * 查看文件-get {filename}
   * bye  退出ftp
 
-### port 23
+4. 存在后门的特征
+   ```
+	21/tcp  open  ftp         vsftpd 2.3.4
+   ```
+
+### port 22 SSH
+
+[链接](https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh)
+
+主要是暴力破解，可挖性比较低
+
+### port 23 Telnet
 
 1. port 23 telnet: telnet {IP} (该说不说这种默认口令port23真的已经很少很少了吧)
 
-### port 139、445
+### port 25,465,587 SMTP
+
+[Simple Mail Transfer Protocol](https://book.hacktricks.xyz/network-services-pentesting/pentesting-smtp#sniffing)
+
+### port 110 POP
+
+[Post Office Protocol](https://book.hacktricks.xyz/network-services-pentesting/pentesting-pop#hacktricks-automatic-commands)
+
+### port 143 imap
+
+[imap](https://book.hacktricks.xyz/network-services-pentesting/pentesting-imap)
+
+### port 139,445 SMB
 https://book.hacktricks.xyz/network-services-pentesting/pentesting-smb
 ```
 For instance, on Windows, SMB can run directly over TCP/IP without the need for NetBIOS over TCP/IP. This will use, as you point out, port 445. On other systems, you’ll find services and applications using port 139. This means that SMB is running with NetBIOS over TCP/IP**.**

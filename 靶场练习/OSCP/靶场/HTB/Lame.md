@@ -1,4 +1,6 @@
-### 信息收集
+# Lame
+
+## 信息收集
 
 首先nmap看一下端口，这里没有扫全部65535端口，因为速度慢太多了
 `sudo nmap -sV ip`
@@ -18,7 +20,7 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 36.07 seconds
 ```
-### 寻找入口
+## 寻找入口
 接下来就是先根据端口服务看看有没有什么可能的漏洞。
 
 **port 21**，尝试匿名者模式
@@ -170,7 +172,7 @@ Current directory is \\10.10.10.3\tmp\
 
 这里的问题点其实是需要把msf的监听改为VPN的IP地址（如果虚拟机开了NAT没准要改桥接）
 
-### 漏洞利用
+## 漏洞利用
 
 解决及最后漏洞利用如下：
 ```
@@ -229,5 +231,6 @@ reset_logs.sh
 root.txt
 vnc.log
 cat root.txt
-9af33e023af6654cab827d958fcf265f
+cd /home/makis
+cat user.txt
 ```
