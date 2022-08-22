@@ -4,9 +4,23 @@
 nmap 参数详解 https://www.freebuf.com/sectool/264941.html
 
 （以下记录一些HTB中用过的方便再次查找）
-标准服务检测：nmap -sV ip
+
+标准服务检测：nmap -sV ip //-sV 尝试确定端口服务版本
+
 扫描所有65535端口：nmap -p- ip
 
+sudo nmap -T4 -A -p port ip  //T4 提高扫描速率; A 探测系统类型、服务版本、脚本扫描和跟踪路由
+
+### WPScan
+常用命令：
+
+`wpscan --url https://brainfuck.htb --disable-tls-checks --api-token $WPSCAN_API`  //这里使用disable-tls-checks绕过证书检查，不然脚本不会运行。
+
+`wpscan --url https://brainfuck.htb/ --enumerate u` //猜解用户
+
+`wpscan --url https://www.xxxxx.wiki/ -e u --wordlist /root/password.txt` // 暴力破解
+
+`wpscan -u https://www.xxxxx.wiki/ -enumerate p` //扫描插件
 
 ## 端口和用到的端口命令
 
