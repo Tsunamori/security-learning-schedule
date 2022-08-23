@@ -22,6 +22,12 @@ sudo nmap -T4 -A -p port ip  //T4 提高扫描速率; A 探测系统类型、服
 
 `wpscan -u https://www.xxxxx.wiki/ -enumerate p` //扫描插件
 
+### 目录发现
+
+#### dirsearch
+
+1. 遇到 `403 /cgi-bin/`的时候，可以再次利用dirsearch或者其他目录fuzz工具进一步探索cgi-bin目录下的内容。
+
 ## 端口和用到的端口命令
 
 ### port 21 ftp
