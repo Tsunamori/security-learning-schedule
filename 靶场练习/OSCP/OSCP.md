@@ -55,5 +55,11 @@
 #### Linux
 
 [Lame](靶场/HTB/Lame.md)
+
 BrainFuck
+
 [shocker](靶场/HTB/shocker.md)
+
+[Bashed](靶场/HTB/Bashed.md)
+
+
