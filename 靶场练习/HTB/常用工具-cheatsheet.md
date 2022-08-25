@@ -110,7 +110,7 @@ For instance, on Windows, SMB can run directly over TCP/IP without the need for 
 4. 卸载重装最新版本 `sudo apt-get remove --auto-remove metasploit-framework`
 
 
-## 提取
+## 提权
 
 ### 低权限shell提权案例
 

