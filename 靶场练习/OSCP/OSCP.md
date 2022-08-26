@@ -62,5 +62,5 @@ BrainFuck
 
 [Bashed](靶场/HTB/Bashed.md)
 
-Nipples
+[Nipples](靶场/HTB/Nibbles.md)
 

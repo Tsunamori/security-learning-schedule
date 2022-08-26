@@ -155,6 +155,10 @@ while True:
 			pass
 ```
 
+## 模板漏洞
 
+### CVE-2015-6967 Nibbleblog 4.0.3 - Arbitrary File Upload
 
+https://nvd.nist.gov/vuln/detail/CVE-2015-6967
 
+[HTB-Nibbles](../OSCP/靶场/HTB/Nibbles.md)
