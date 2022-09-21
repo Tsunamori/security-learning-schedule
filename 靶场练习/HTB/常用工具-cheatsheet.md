@@ -33,6 +33,7 @@ sudo nmap -T4 -A -p port ip  //T4 提高扫描速率; A 探测系统类型、服
 1. [常用命令1](https://vk9-sec.com/gobuster-how-to/)
 2. [常用命令2](https://blog.intigriti.com/2021/07/05/hacker-tools-gobuster/)
 3. [原项目](https://github.com/OJ/gobuster)
+4. 搜目录：`gobuster dir -k -u https://10.10.10.43 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -o scans/gobuster-https-root-medium -t 20`
 
 ## 端口和用到的端口命令
 
